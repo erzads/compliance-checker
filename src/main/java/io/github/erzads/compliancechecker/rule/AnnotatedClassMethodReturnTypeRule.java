@@ -42,22 +42,23 @@ public class AnnotatedClassMethodReturnTypeRule implements Rule {
         boolean isCompliant = true;
         Reflections reflections = new Reflections(new ConfigurationBuilder()
                 .setScanners(new SubTypesScanner(false))
-                .setUrls(ClasspathHelper.forPackage(this.basePackage)));
+                .setUrls(ClasspathHelper.forPackage(this.basePackage))
+                .filterInputsBy(new FilterBuilder().includePackage(this.basePackage)));
 
         Set<Class<?>> foundClasses = reflections.getSubTypesOf(Object.class);
         for (Class<?> foundClass : foundClasses) {
             Annotation[] declaredAnnotations = foundClass.getDeclaredAnnotations();
-            if (Arrays.stream(declaredAnnotations).anyMatch(annotation -> annotationName.equals(annotation.annotationType().getSimpleName()))){
+            if (Arrays.stream(declaredAnnotations).anyMatch(annotation -> annotationName.equals(annotation.annotationType().getSimpleName()))) {
                 Method[] methods = foundClass.getDeclaredMethods();
                 for (Method method : methods) {
                     boolean isPublic = (method.getModifiers() & Modifier.PUBLIC) != 0;
                     Class<?> returnType = method.getReturnType();
-                    if (isPublic && !returnType.isAssignableFrom(void.class)){
+                    if (isPublic && !returnType.isAssignableFrom(void.class)) {
                         if (returnTypeRegex.matcher(returnType.getSimpleName()).matches()) {
                             LOGGER.info("[COMPLIANT] - {}", foundClass.getName());
                         } else {
                             isCompliant = false;
-                            LOGGER.error("[NON-COMPLIANT] - {} should match {}", foundClass.getName(), returnTypeRegex.pattern());
+                            LOGGER.error("[NON-COMPLIANT] - Return type {} of {}.{} should match {}", returnType.getSimpleName(), foundClass.getName(), method.getName(), returnTypeRegex.pattern());
                         }
                     }
                 }
