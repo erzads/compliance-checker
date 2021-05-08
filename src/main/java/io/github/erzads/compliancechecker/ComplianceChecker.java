@@ -35,7 +35,8 @@ public final class ComplianceChecker {
         }
         boolean noError = true;
         for (Rule rule : rules) {
-            noError = noError && rule.isCompliant();
+            boolean compliant = rule.isCompliant();
+            noError = noError && compliant;
         }
         if (noError) {
             LOGGER.info("All validations succeeded.");

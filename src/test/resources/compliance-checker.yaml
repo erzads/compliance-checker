@@ -6,3 +6,7 @@
 - ClassNameInPackageRule:
     - '.*\.entity.*'
     - '.+Entity$'
+
+- AnnotatedClassMethodReturnTypeRule:
+    - 'SampleAnnotation'
+    - 'String'
