@@ -4,7 +4,7 @@
 
     <groupId>io.github.erzads</groupId>
     <artifactId>compliance-checker</artifactId>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Check your project for configured compliance rules</description>
     <packaging>jar</packaging>
