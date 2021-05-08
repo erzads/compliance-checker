@@ -37,7 +37,7 @@
 
     <scm>
         <connection>scm:git:git@github.com:erzads/compliance-checker.git</connection>
-        <developerConnection>scm:git@github.com:erzads/compliance-checker.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:erzads/compliance-checker.git</developerConnection>
         <url>https://github.com/erzads/compliance-checker/</url>
     </scm>
 
