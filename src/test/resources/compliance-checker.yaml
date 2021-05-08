@@ -1,0 +1,8 @@
+- ClassNameInPackageRule:
+    - '.*\.dto.*'
+    - '.+Dto$'
+    - '.*Ignored.*'
+
+- ClassNameInPackageRule:
+    - '.*\.entity.*'
+    - '.+Entity$'
