@@ -4,7 +4,7 @@
 
     <groupId>io.github.erzads</groupId>
     <artifactId>compliance-checker</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.5</version>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>Check your project for configured compliance rules</description>
     <url>https://github.com/erzads/compliance-checker</url>
@@ -39,7 +39,7 @@
         <connection>scm:git:git@github.com:erzads/compliance-checker.git</connection>
         <developerConnection>scm:git:git@github.com:erzads/compliance-checker.git</developerConnection>
         <url>https://github.com/erzads/compliance-checker/</url>
-        <tag>HEAD</tag>
+        <tag>compliance-checker-0.0.5</tag>
     </scm>
 
     <dependencies>
